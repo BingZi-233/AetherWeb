@@ -144,14 +144,6 @@
               />
             </div>
 
-            <!-- 通知按钮 -->
-            <UButton
-              icon="i-lucide-bell"
-              variant="ghost"
-              size="sm"
-              :badge="notificationCount"
-            />
-
             <!-- 主题切换 -->
             <UButton
               :icon="isDark ? 'i-lucide-sun' : 'i-lucide-moon'"
@@ -184,7 +176,6 @@ import type { Models } from 'appwrite'
 // 响应式状态
 const sidebarOpen = ref(false)
 const searchQuery = ref('')
-const notificationCount = ref(3)
 
 // 用户相关状态
 const user = ref<Models.User<Models.Preferences> | null>(null)
