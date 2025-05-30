@@ -39,19 +39,6 @@
         <div class="pt-4 mt-4 border-t border-gray-200 dark:border-gray-700">
           <div class="space-y-1">
             <NuxtLink
-              :to="'/dashboard/settings'"
-              :class="[
-                'flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors',
-                route.path?.startsWith('/dashboard/settings')
-                  ? 'bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300'
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-white'
-              ]"
-            >
-              <UIcon name="i-lucide-settings" class="w-5 h-5 mr-3" />
-              设置
-            </NuxtLink>
-            
-            <NuxtLink
               to="/dashboard/help"
               :class="[
                 'flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors',
@@ -274,12 +261,6 @@ const mainNavigationItems = computed(() => [
     active: route.path?.startsWith('/dashboard/analytics') || false
   },
   {
-    label: '用户管理',
-    icon: 'i-lucide-users',
-    to: '/dashboard/users',
-    active: route.path?.startsWith('/dashboard/users') || false
-  },
-  {
     label: '内容管理',
     icon: 'i-lucide-file-text',
     to: '/dashboard/content',
@@ -294,11 +275,6 @@ const userMenuItems = computed(() => [
       label: '个人资料',
       icon: 'i-lucide-user',
       to: '/dashboard/profile'
-    },
-    {
-      label: '账户设置',
-      icon: 'i-lucide-settings',
-      to: '/dashboard/settings'
     }
   ],
   [

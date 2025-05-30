@@ -294,11 +294,6 @@ const recentActivities = ref([
 // 快速操作
 const quickActions = ref([
   {
-    label: '添加用户',
-    icon: 'i-lucide-user-plus',
-    to: '/dashboard/users/create'
-  },
-  {
     label: '创建内容',
     icon: 'i-lucide-file-plus',
     to: '/dashboard/content/create'
@@ -307,11 +302,6 @@ const quickActions = ref([
     label: '查看报告',
     icon: 'i-lucide-bar-chart',
     to: '/dashboard/reports'
-  },
-  {
-    label: '系统设置',
-    icon: 'i-lucide-settings',
-    to: '/dashboard/settings'
   }
 ])
 
