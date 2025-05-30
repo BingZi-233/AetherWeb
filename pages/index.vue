@@ -27,7 +27,7 @@
               color="neutral"
               variant="outline"
               leading-icon="i-lucide-package"
-              @click="navigateTo('/auth/login')"
+              @click="navigateTo('/dashboard/plugins')"
             />
           </div>
         </div>

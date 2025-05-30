@@ -267,6 +267,12 @@ const mainNavigationItems = computed(() => [
     active: route.path?.startsWith('/dashboard/content') || false
   },
   {
+    label: '插件商店',
+    icon: 'i-lucide-package',
+    to: '/dashboard/plugins',
+    active: route.path?.startsWith('/dashboard/plugins') || false
+  },
+  {
     label: '更新日志',
     icon: 'i-lucide-newspaper',
     to: '/dashboard/updates',
