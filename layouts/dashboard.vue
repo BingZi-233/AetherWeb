@@ -60,7 +60,7 @@
           <UAvatar
             :src="userAvatar"
             :alt="user.name || '用户'"
-            size="sm"
+            size="md"
           />
           <div class="flex-1 min-w-0">
             <p class="text-sm font-medium text-gray-900 dark:text-white truncate">
@@ -74,7 +74,7 @@
             <UButton
               icon="i-lucide-more-vertical"
               variant="ghost"
-              size="sm"
+              size="xl"
             />
           </UDropdownMenu>
         </div>
@@ -132,23 +132,13 @@
             </nav>
           </div>
 
-          <!-- 右侧：搜索、通知、用户菜单 -->
+          <!-- 右侧：主题切换、用户菜单 -->
           <div class="flex items-center space-x-4">
-            <!-- 搜索框 -->
-            <div class="hidden md:block">
-              <UInput
-                v-model="searchQuery"
-                placeholder="搜索..."
-                icon="i-lucide-search"
-                class="w-64"
-              />
-            </div>
-
             <!-- 主题切换 -->
             <UButton
               :icon="isDark ? 'i-lucide-sun' : 'i-lucide-moon'"
               variant="ghost"
-              size="sm"
+              size="xl"
               @click="toggleColorMode"
             />
           </div>
@@ -175,7 +165,6 @@ import type { Models } from 'appwrite'
 
 // 响应式状态
 const sidebarOpen = ref(false)
-const searchQuery = ref('')
 
 // 用户相关状态
 const user = ref<Models.User<Models.Preferences> | null>(null)
