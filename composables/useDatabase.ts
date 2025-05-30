@@ -1,9 +1,55 @@
 import { Databases, Query } from 'appwrite'
-import { DATABASE_CONFIG, type UpdateLog } from '~/config/database'
+import { DATABASE_CONFIG, type UpdateLog, type Notification } from '~/config/database'
 
 export const useDatabase = () => {
   const { client } = useAppwrite()
   const databases = new Databases(client)
+
+  // 获取激活的通知横幅
+  const getActiveNotifications = async (currentPage?: string): Promise<Notification[]> => {
+    try {
+      const currentTime = new Date().toISOString()
+      
+      const queries = [
+        Query.equal('isActive', true),
+        Query.orderDesc('priority'), // 按优先级排序
+        Query.limit(10) // 限制最多10个通知
+      ]
+      
+      const response = await databases.listDocuments(
+        DATABASE_CONFIG.DATABASE_ID,
+        DATABASE_CONFIG.COLLECTIONS.NOTIFICATIONS,
+        queries
+      )
+      
+      let notifications = response.documents as unknown as Notification[]
+      
+      // 过滤时间范围内的通知
+      notifications = notifications.filter(notification => {
+        // 检查开始时间
+        if (notification.startDate && notification.startDate > currentTime) {
+          return false
+        }
+        
+        // 检查结束时间
+        if (notification.endDate && notification.endDate < currentTime) {
+          return false
+        }
+        
+        // 检查目标页面
+        if (currentPage && notification.targetPages && notification.targetPages.length > 0) {
+          return notification.targetPages.includes(currentPage)
+        }
+        
+        return true
+      })
+      
+      return notifications
+    } catch (error) {
+      console.error('获取激活通知失败:', error)
+      throw error
+    }
+  }
 
   // 获取更新日志
   const getUpdateLogs = async (limit: number = 10): Promise<UpdateLog[]> => {
@@ -128,6 +174,73 @@ export const useDatabase = () => {
     }
   }
 
+  // 创建通知
+  const createNotification = async (data: Omit<Notification, '$id' | '$createdAt' | '$updatedAt'>): Promise<Notification> => {
+    try {
+      const response = await databases.createDocument(
+        DATABASE_CONFIG.DATABASE_ID,
+        DATABASE_CONFIG.COLLECTIONS.NOTIFICATIONS,
+        'unique()',
+        data
+      )
+      
+      return response as unknown as Notification
+    } catch (error) {
+      console.error('创建通知失败:', error)
+      throw error
+    }
+  }
+
+  // 更新通知
+  const updateNotification = async (id: string, data: Partial<Notification>): Promise<Notification> => {
+    try {
+      const response = await databases.updateDocument(
+        DATABASE_CONFIG.DATABASE_ID,
+        DATABASE_CONFIG.COLLECTIONS.NOTIFICATIONS,
+        id,
+        data
+      )
+      
+      return response as unknown as Notification
+    } catch (error) {
+      console.error('更新通知失败:', error)
+      throw error
+    }
+  }
+
+  // 删除通知
+  const deleteNotification = async (id: string): Promise<void> => {
+    try {
+      await databases.deleteDocument(
+        DATABASE_CONFIG.DATABASE_ID,
+        DATABASE_CONFIG.COLLECTIONS.NOTIFICATIONS,
+        id
+      )
+    } catch (error) {
+      console.error('删除通知失败:', error)
+      throw error
+    }
+  }
+
+  // 获取所有通知（管理用）
+  const getAllNotifications = async (limit: number = 50): Promise<Notification[]> => {
+    try {
+      const response = await databases.listDocuments(
+        DATABASE_CONFIG.DATABASE_ID,
+        DATABASE_CONFIG.COLLECTIONS.NOTIFICATIONS,
+        [
+          Query.orderDesc('$createdAt'),
+          Query.limit(limit)
+        ]
+      )
+      
+      return response.documents as unknown as Notification[]
+    } catch (error) {
+      console.error('获取所有通知失败:', error)
+      throw error
+    }
+  }
+
   return {
     databases,
     getUpdateLogs,
@@ -135,6 +248,11 @@ export const useDatabase = () => {
     getUpdateLogsStats,
     createUpdateLog,
     updateUpdateLog,
-    deleteUpdateLog
+    deleteUpdateLog,
+    getActiveNotifications,
+    createNotification,
+    updateNotification,
+    deleteNotification,
+    getAllNotifications
   }
 } 

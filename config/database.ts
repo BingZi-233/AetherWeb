@@ -9,7 +9,8 @@ export const DATABASE_CONFIG = {
     USERS: 'users',
     CONTENT: 'content',
     ANALYTICS: 'analytics',
-    SESSIONS: 'sessions'
+    SESSIONS: 'sessions',
+    NOTIFICATIONS: 'notifications'
   }
 }
 
@@ -26,4 +27,32 @@ export interface UpdateLog {
   iconBg: string
   iconColor: string
   date: string
+}
+
+// 通知横幅类型定义
+export interface Notification {
+  $id: string
+  $createdAt: string
+  $updatedAt: string
+  title: string
+  description: string
+  type: 'info' | 'success' | 'warning' | 'error'
+  icon: string
+  color: 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error' | 'neutral'
+  variant: 'solid' | 'outline' | 'soft' | 'subtle'
+  isActive: boolean
+  priority: number // 优先级，数字越大优先级越高
+  startDate?: string // 开始显示时间
+  endDate?: string // 结束显示时间
+  isDismissible: boolean // 是否可以关闭
+  targetPages?: string[] // 目标页面，空数组表示所有页面
+}
+
+// 系统服务状态类型定义
+export interface SystemService {
+  id: string
+  name: string
+  description: string
+  status: 'operational' | 'degraded' | 'outage' | 'maintenance'
+  responseTime: string
 } 
