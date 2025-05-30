@@ -265,7 +265,7 @@
             </div>
             <USelect
               v-model="themePreference"
-              :options="themeOptions"
+              :items="themeOptions"
               class="w-32"
               @change="updateTheme"
             />
