@@ -152,22 +152,7 @@ const socialLinks = [
   {
     name: 'GitHub',
     icon: 'i-simple-icons-github',
-    url: 'https://github.com'
-  },
-  {
-    name: 'Twitter',
-    icon: 'i-simple-icons-twitter',
-    url: 'https://twitter.com'
-  },
-  {
-    name: 'LinkedIn',
-    icon: 'i-simple-icons-linkedin',
-    url: 'https://linkedin.com'
-  },
-  {
-    name: 'Discord',
-    icon: 'i-simple-icons-discord',
-    url: 'https://discord.com'
+    url: 'https://github.com/BingZi-233/AetherWeb'
   }
 ]
 
