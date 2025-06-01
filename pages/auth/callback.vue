@@ -38,7 +38,7 @@
 <script setup lang="ts">
 // 设置页面元数据
 definePageMeta({
-  title: 'OAuth回调处理',
+  title: 'OAuth - AetherWeb',
   layout: 'default'
 })
 

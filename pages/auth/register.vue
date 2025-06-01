@@ -148,7 +148,7 @@ import { ID, OAuthProvider } from 'appwrite'
 
 // 设置页面元数据
 definePageMeta({
-  title: '注册',
+  title: '注册 - AetherWeb',
   middleware: 'guest'
 })
 

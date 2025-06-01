@@ -308,7 +308,7 @@
 // 设置页面元数据
 definePageMeta({
   layout: 'dashboard',
-  title: '内容管理',
+  title: '内容管理 - 仪表台 - AetherWeb',
   middleware: 'auth'
 })
 
@@ -593,11 +593,6 @@ watch(searchQuery, () => {
 // 监听筛选变化
 watch([selectedCategory, selectedStatus, selectedAuthor], () => {
   currentPage.value = 1
-})
-
-// 页面标题
-useHead({
-  title: '内容管理 - AetherWeb'
 })
 </script>
 

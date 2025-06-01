@@ -135,7 +135,7 @@
 <script setup lang="ts">
 // 页面元数据
 definePageMeta({
-  title: '插件详情',
+  title: '插件详情 - 仪表台 - AetherWeb',
   description: '查看插件的详细信息和功能特性',
   layout: 'dashboard',
   middleware: 'auth'

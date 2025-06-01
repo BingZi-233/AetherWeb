@@ -189,7 +189,7 @@
 <script setup lang="ts">
 // 页面元数据
 definePageMeta({
-  title: '插件商店',
+  title: '插件商店 - 仪表台 - AetherWeb',
   description: '选择适合您服务器的专业插件，享受安全可靠的授权服务',
   layout: 'dashboard',
   middleware: 'auth'

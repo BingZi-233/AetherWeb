@@ -142,7 +142,7 @@ import type { UpdateLog } from '~/config/database'
 // 设置页面元数据
 definePageMeta({
   layout: 'dashboard',
-  title: '更新日志',
+  title: '更新日志 - 仪表台 - AetherWeb',
   middleware: 'auth'
 })
 
@@ -275,10 +275,5 @@ watch(selectedType, (newType) => {
 // 组件挂载时获取数据
 onMounted(() => {
   fetchUpdateLogs()
-})
-
-// 页面标题
-useHead({
-  title: '更新日志 - AetherWeb'
 })
 </script> 

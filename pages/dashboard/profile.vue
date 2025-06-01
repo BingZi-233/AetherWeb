@@ -333,7 +333,7 @@ import DeleteAccountModal from '~/components/DeleteAccountModal.vue'
 // 设置页面元数据
 definePageMeta({
   layout: 'dashboard',
-  title: '个人资料',
+  title: '个人资料 - 仪表台 - AetherWeb',
   middleware: 'auth'
 })
 
@@ -572,10 +572,5 @@ onMounted(async () => {
   } finally {
     isLoading.value = false
   }
-})
-
-// 页面标题
-useHead({
-  title: '个人资料 - AetherWeb'
 })
 </script> 

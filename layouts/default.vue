@@ -14,16 +14,6 @@
 </template>
 
 <script lang="ts" setup>
-// 页面元数据
-useHead({
-  htmlAttrs: {
-    lang: 'zh-CN'
-  },
-  meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { name: 'description', content: 'AetherWeb - 构建现代化的Web应用程序' }
-  ]
-})
 
 // 设置颜色模式
 const colorMode = useColorMode()

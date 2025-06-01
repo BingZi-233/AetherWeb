@@ -161,7 +161,7 @@
 <script setup lang="ts">
 // 设置页面元数据
 definePageMeta({
-  title: '邮箱验证',
+  title: '邮箱验证 - AetherWeb',
   middleware: 'auth'
 })
 

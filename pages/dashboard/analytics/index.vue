@@ -257,7 +257,7 @@
 // 设置页面元数据
 definePageMeta({
   layout: 'dashboard',
-  title: '数据分析',
+  title: '数据分析 - 仪表台 - AetherWeb',
   middleware: 'auth'
 })
 
@@ -449,9 +449,4 @@ const realtimeData = ref([
     icon: 'i-lucide-activity'
   }
 ])
-
-// 页面标题
-useHead({
-  title: '数据分析 - AetherWeb'
-})
 </script> 

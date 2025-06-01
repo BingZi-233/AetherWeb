@@ -38,7 +38,7 @@
 <script setup lang="ts">
 // 设置页面元数据
 definePageMeta({
-  title: '魔术链接验证',
+  title: '魔术链接验证 - AetherWeb',
   layout: 'default'
 })
 

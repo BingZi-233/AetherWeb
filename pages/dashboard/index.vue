@@ -221,7 +221,7 @@ import type { UpdateLog, Notification, SystemService } from '~/config/database'
 // 设置页面元数据
 definePageMeta({
   layout: 'dashboard',
-  title: '仪表台概览',
+  title: '概览 - 仪表台 - AetherWeb',
   middleware: 'auth'
 })
 
@@ -493,11 +493,6 @@ const getOverallStatusText = (): string => {
   if (hasMaintenance) return '维护中'
   return '全部正常'
 }
-
-// 页面标题
-useHead({
-  title: '仪表台概览 - AetherWeb'
-})
 
 // 组件挂载时获取数据
 onMounted(() => {
