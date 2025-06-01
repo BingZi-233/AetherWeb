@@ -36,6 +36,12 @@
 </template>
 
 <script setup lang="ts">
+// 设置页面元数据
+definePageMeta({
+  title: 'OAuth回调处理',
+  layout: 'default'
+})
+
 const appwrite = useAppwrite()
 
 const loading = ref(true)

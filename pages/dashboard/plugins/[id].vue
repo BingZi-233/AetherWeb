@@ -137,7 +137,8 @@
 definePageMeta({
   title: '插件详情',
   description: '查看插件的详细信息和功能特性',
-  layout: 'dashboard'
+  layout: 'dashboard',
+  middleware: 'auth'
 })
 
 // 类型定义

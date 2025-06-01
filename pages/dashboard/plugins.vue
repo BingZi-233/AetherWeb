@@ -191,7 +191,8 @@
 definePageMeta({
   title: '插件商店',
   description: '选择适合您服务器的专业插件，享受安全可靠的授权服务',
-  layout: 'dashboard'
+  layout: 'dashboard',
+  middleware: 'auth'
 })
 
 // 类型定义

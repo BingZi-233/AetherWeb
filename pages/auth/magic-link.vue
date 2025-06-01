@@ -36,6 +36,12 @@
 </template>
 
 <script setup lang="ts">
+// 设置页面元数据
+definePageMeta({
+  title: '魔术链接验证',
+  layout: 'default'
+})
+
 const appwrite = useAppwrite()
 const route = useRoute()
 

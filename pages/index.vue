@@ -247,6 +247,12 @@
 
 <script lang="ts" setup>
 // 页面元数据
+definePageMeta({
+  title: 'AetherWeb - 专业的Minecraft插件授权平台',
+  description: '为服务器管理员和开发者提供安全可靠的插件授权服务，保护知识产权，提升服务器运营效率。',
+  layout: 'default'
+})
+
 useHead({
   title: 'AetherWeb - 专业的Minecraft插件授权平台',
   meta: [
